@@ -1,0 +1,19 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      APP_ENV: development
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: bicopilot
+      POSTGRES_USER: bicopilot
+      POSTGRES_PASSWORD: bicopilot_dev_only
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+volumes:
+  postgres_data:
