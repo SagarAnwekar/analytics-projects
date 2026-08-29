@@ -10,7 +10,7 @@ services:
     environment:
       POSTGRES_DB: bicopilot
       POSTGRES_USER: bicopilot
-      POSTGRES_PASSWORD: bicopilot_dev_only
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-bicopilot_dev_only}
     ports:
       - "5432:5432"
     volumes:
